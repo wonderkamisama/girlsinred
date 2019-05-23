@@ -16,4 +16,26 @@ knitr::opts_chunk$set(collapse = TRUE)
 
 这是一份针对政府工作报告的爬虫
 
+```{r scrape}
+library(rvest)
+url<-"http://www.gov.cn/premier/2017-03/16/content_5177940.htm"
+web<-read_html(url, encoding="utf-8") #读取数据，规定编码
+position<-web %>% html_nodes("div.pages_content") %>% html_text()
+
+library(jiebaR)
+engine_s<-worker(stop_word = "D:\\stopwords.txt")#初始化分词引擎并加载停用词。
+seg<-segment(position,engine_s)#分词
+f<-freq(seg) #统计词频
+f<-f[order(f[2],decreasing=TRUE),] #根据词频降序排列
+head(f)
+
+library(wordcloud2)
+f1<-f[1:150,]
+wordcloud2(f1, size = 0.8 ,shape='circle')
+
+
+
+
+
+```
 ---

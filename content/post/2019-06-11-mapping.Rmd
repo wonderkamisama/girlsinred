@@ -1,0 +1,14 @@
+---
+title: Mapping/繪圖
+author: Wanda
+date: '2019-06-11'
+slug: mapping
+categories:
+  - R
+tags: []
+---
+```{r}
+plot(c(1:6),c(1:6),main="test",type="p",xlim = c(0,7),ylim = c(0,7))
+plot(c(1:6),c(1:6),main="test",type="b",xlim = c(0,7),ylim = c(0,7))
+```
+

@@ -1,0 +1,14 @@
+---
+title: Time tool/時間工具
+author: Wanda
+date: '2019-06-01'
+slug: time-tool
+categories:
+  - R
+tags: []
+---
+現在的時間是：
+```{r}
+Sys.time()
+```
+

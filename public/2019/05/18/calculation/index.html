@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.55.5" />
+
+
+<title>Calculation/計算 - A JOJO website</title>
+<meta property="og:title" content="Calculation/計算 - A JOJO website">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="https://user.qzone.qq.com/975940422/infocenter">QQ</a></li>
+    
+    <li><a href="http://www.scu.edu.cn/">四川大學</a></li>
+    
+    <li><a href="/about/">關於我</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">Calculation/計算</h1>
+
+    
+    <span class="article-date">2019-05-18</span>
+    
+
+    <div class="article-content">
+      
+
+<p>心血來潮地想要嘗試一些運算,需要安裝一個新的包ggplot2</p>
+
+<h2 id="一元方程">一元方程</h2>
+
+<p>ax+b=0,设a=5,b=10,求x</p>
+
+<pre><code class="language-r">f1&lt;-function(x,a,b) a*x+b
+a&lt;-5
+b&lt;-10
+result&lt;-uniroot(f1,c(-10,10),a=a,b=b,tol=0.00001)
+result$root
+</code></pre>
+
+<pre><code>## [1] -2
+</code></pre>
+
+<pre><code class="language-r">x&lt;-seq(-5,5,by=0.01)
+y&lt;-f1(x,a,b)
+df&lt;-data.frame(x,y)
+ggplot2::aes(x,y)
+</code></pre>
+
+<pre><code>## Registered S3 methods overwritten by 'ggplot2':
+##   method         from 
+##   [.quosures     rlang
+##   c.quosures     rlang
+##   print.quosures rlang
+</code></pre>
+
+<pre><code>## Aesthetic mapping: 
+## * `x` -&gt; `x`
+## * `y` -&gt; `y`
+</code></pre>
+
+<pre><code class="language-r">ggplot2::geom_line(col=&quot;red&quot;)
+</code></pre>
+
+<pre><code>## geom_line: na.rm = FALSE
+## stat_identity: na.rm = FALSE
+## position_identity
+</code></pre>
+
+<pre><code class="language-r">ggplot2::geom_vline(yintercept=0)
+</code></pre>
+
+<pre><code>## Warning: Ignoring unknown parameters: yintercept
+</code></pre>
+
+<pre><code>## geom_vline: na.rm = FALSE
+## stat_identity: na.rm = FALSE
+## position_identity
+</code></pre>
+
+<pre><code class="language-r">ggplot2::geom_hline(yintercept=0)
+</code></pre>
+
+<pre><code>## mapping: yintercept = ~yintercept 
+## geom_hline: na.rm = FALSE
+## stat_identity: na.rm = FALSE
+## position_identity
+</code></pre>
+
+<pre><code class="language-r">ggplot2::ggtitle(paste(&quot;y=&quot;,a,&quot;*x+&quot;,b))
+</code></pre>
+
+<pre><code>## $title
+## [1] &quot;y= 5 *x+ 10&quot;
+## 
+## attr(,&quot;class&quot;)
+## [1] &quot;labels&quot;
+</code></pre>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

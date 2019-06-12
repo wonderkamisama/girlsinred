@@ -1,5 +1,5 @@
 ---
-title: Mapping/繪圖
+title: Mapping/繪圖（更新ggplot和scatterD3）
 author: Wanda
 date: '2019-06-11'
 slug: mapping
@@ -7,8 +7,48 @@ categories:
   - R
 tags: []
 ---
+很簡單的點圖和點線圖：
 ```{r}
 plot(c(1:6),c(1:6),main="test",type="p",xlim = c(0,7),ylim = c(0,7))
 plot(c(1:6),c(1:6),main="test",type="b",xlim = c(0,7),ylim = c(0,7))
+```
+
+使用ggplot2和RColorBrewer畫一個圖:
+```{r}
+library(ggplot2)
+library(RColorBrewer)
+data("iris")
+iris <- data.frame(iris)
+col <- brewer.pal(3, "Set1")
+ggplot(data = iris, aes(Sepal.Length, Sepal.Width, colour = Species)) + 
+    geom_point(size = 5, alpha = .6) + 
+    scale_color_manual(values = col)
+```
+
+用scatterD3來進行視覺化，起到一些不一樣的效果（例如縮放）。
+
+```{r}
+library(scatterD3)
+scatterD3(x = mtcars$wt, y = mtcars$mpg)
+
+scatterD3(data = mtcars, x = wt, y = mpg, 
+          point_size = 200, point_opacity = 0.3, fixed = TRUE,
+          colors = "#000")
+
+scatterD3(data = mtcars, x = wt, y = mpg, 
+          point_size = 100, point_opacity = 0.5,
+          hover_size = 8, hover_opacity = 1)
+
+mtcars$cyl_fac <- paste(mtcars$cyl, "variable")
+scatterD3(data = mtcars, x = cyl_fac, y = mpg,point_size=60,hover_size = 4)
+
+mtcars$names <- rownames(mtcars)
+scatterD3(data = mtcars, x = wt, y = mpg, lab = names, labels_size = 15,point_size=60,hover_size = 4)
+
+scatterD3(data = mtcars, x = wt, y = mpg, col_var = cyl, symbol_var = gear)
+
+mtcars$names <- rownames(mtcars)
+scatterD3(data = mtcars, x = wt, y = mpg, lab = names, lasso = TRUE)
+
 ```
 

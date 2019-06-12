@@ -6,18 +6,30 @@
     <description>Recent content on A JOJO website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 11 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Mapping/繪圖</title>
+      <title>Chart/圖表（DiagrammeR）</title>
+      <link>/2019/06/12/chart/</link>
+      <pubDate>Wed, 12 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/06/12/chart/</guid>
+      <description>儒学的做人准则：《礼记·大学》：“古之欲明明德于天下者，先治其国；欲治其国者，先齐其家；欲齐其家者，先修其身；欲修其身者，先正其心；欲正其心者，先诚其意；欲诚其意者，先致其知，致知在格物。物格而后知至，知至而后意诚，意诚而后心正，心正而后身修，身修而后家齐，家齐而后国治，国治而后天下平。”
+library(DiagrammeR)## Registered S3 methods overwritten by &amp;#39;ggplot2&amp;#39;:## method from ## [.quosures rlang## c.quosures rlang## print.quosures rlangDiagrammeR::grViz(&amp;quot;digraph RmarkDown {graph [rankdir = LR]node [shape=rectanglestyle=filledcolor=orangefillcolor=salmonfontcolor=whitearrowcolor=redalpha=55fontname = &amp;#39;微软雅黑&amp;#39;]edge [color = grey]&amp;#39;修身&amp;#39; -&amp;gt; &amp;#39;齐家&amp;#39;&amp;#39;齐家&amp;#39; -&amp;gt; &amp;#39;治国&amp;#39;&amp;#39;治国&amp;#39; -&amp;gt; &amp;#39;平天下&amp;#39;}&amp;quot;, width=600){&#34;x&#34;:{&#34;diagram&#34;:&#34;\ndigraph RmarkDown {\ngraph [rankdir = LR]\nnode [shape=rectangle\n style=filled\n color=orange\n fillcolor=salmon\n fontcolor=white\n arrowcolor=red\n alpha=55\n fontname = \&#34;</description>
+    </item>
+    
+    <item>
+      <title>Mapping/繪圖（更新ggplot和scatterD3）</title>
       <link>/2019/06/11/mapping/</link>
       <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/06/11/mapping/</guid>
-      <description>plot(c(1:6),c(1:6),main=&amp;quot;test&amp;quot;,type=&amp;quot;p&amp;quot;,xlim = c(0,7),ylim = c(0,7))plot(c(1:6),c(1:6),main=&amp;quot;test&amp;quot;,type=&amp;quot;b&amp;quot;,xlim = c(0,7),ylim = c(0,7))</description>
+      <description>很簡單的點圖和點線圖：
+plot(c(1:6),c(1:6),main=&amp;quot;test&amp;quot;,type=&amp;quot;p&amp;quot;,xlim = c(0,7),ylim = c(0,7))plot(c(1:6),c(1:6),main=&amp;quot;test&amp;quot;,type=&amp;quot;b&amp;quot;,xlim = c(0,7),ylim = c(0,7))使用ggplot2和RColorBrewer畫一個圖:
+library(ggplot2)## Registered S3 methods overwritten by &amp;#39;ggplot2&amp;#39;:## method from ## [.quosures rlang## c.quosures rlang## print.quosures rlanglibrary(RColorBrewer)data(&amp;quot;iris&amp;quot;)iris &amp;lt;- data.frame(iris)col &amp;lt;- brewer.pal(3, &amp;quot;Set1&amp;quot;)ggplot(data = iris, aes(Sepal.Length, Sepal.Width, colour = Species)) + geom_point(size = 5, alpha = .</description>
     </item>
     
     <item>
@@ -46,9 +58,9 @@ library(rvest)## 载入需要的程辑包：xml2url&amp;lt;-&amp;quot;http://w
       <pubDate>Sat, 18 May 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/05/18/calculation/</guid>
-      <description>心血來潮地想要嘗試一些運算,需要安裝一個新的包ggplot2
-一元方程 ax+b=0,设a=5,b=10,求x
-f1&amp;lt;-function(x,a,b) a*x+b a&amp;lt;-5 b&amp;lt;-10 result&amp;lt;-uniroot(f1,c(-10,10),a=a,b=b,tol=0.00001) result$root  ## [1] -2  x&amp;lt;-seq(-5,5,by=0.01) y&amp;lt;-f1(x,a,b) df&amp;lt;-data.frame(x,y) ggplot2::aes(x,y)  ## Registered S3 methods overwritten by &#39;ggplot2&#39;: ## method from ## [.quosures rlang ## c.quosures rlang ## print.quosures rlang  ## Aesthetic mapping: ## * `x` -&amp;gt; `x` ## * `y` -&amp;gt; `y`  ggplot2::geom_line(col=&amp;quot;red&amp;quot;)  ## geom_line: na.rm = FALSE ## stat_identity: na.rm = FALSE ## position_identity  ggplot2::geom_vline(yintercept=0)  ## Warning: Ignoring unknown parameters: yintercept  ## geom_vline: na.</description>
+      <description> 一元方程 ax+b=0,设a=5,b=10,求x
+f1&amp;lt;-function(x,a,b) a*x+b a&amp;lt;-5 b&amp;lt;-10 result&amp;lt;-uniroot(f1,c(-10,10),a=a,b=b,tol=0.00001) result$root  ## [1] -2  模拟组合 從20個人中選出人數為3,4,5的三個委員會，A和B被選入同一個委員會的概率有多大？
+choosecomm&amp;lt;-function(comdat,comsize){ committee&amp;lt;-sample(comdat$whosleft,comsize) #定义AB为1:2的序号 comdat$numabchosen&amp;lt;-length(intersect(1:2,committee)) if(comdat$numabchosen==2) comdat$countabsamecomm&amp;lt;-comdat$countabsamecomm+1 comdat$whosleft&amp;lt;-setdiff(comdat$whosleft,committee) return(comdat) } sim&amp;lt;-function(nreps){ commdata&amp;lt;-list() commdata$countabsamecomm&amp;lt;-0 for (rep in 1:nreps){ commdata$whosleft&amp;lt;-1:20 commdata$numabchosen&amp;lt;-0 commdata&amp;lt;-choosecomm(commdata,5) if (commdata$numabchosen&amp;gt;0) next commdata&amp;lt;-choosecomm(commdata,4) if (commdata$numabchosen&amp;gt;0) next commdata&amp;lt;-choosecomm(commdata,3) } print(commdata$countabsamecomm/nreps) } #如果用解析的方法，如下概率0.1 (choose(18,1)*choose(17,4)*choose(13,5)+choose(18,2)*choose(16,3)*choose(13,5)+choose(18,3)*choose(15,3)*choose(12,4))/(choose(20,3)*choose(17,4)*choose(13,5))  ## [1] 0.1  </description>
     </item>
     
     <item>

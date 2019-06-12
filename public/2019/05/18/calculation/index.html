@@ -38,7 +38,7 @@
       <header class="header">
         <nav class="nav">
   <a href="/" class="nav-logo">
-    <img src="/images/logo.png"
+    <img src="/images/rainbow.png"
          width="50"
          height="50"
          alt="Logo">
@@ -74,8 +74,6 @@
     <div class="article-content">
       
 
-<p>心血來潮地想要嘗試一些運算,需要安裝一個新的包ggplot2</p>
-
 <h2 id="一元方程">一元方程</h2>
 
 <p>ax+b=0,设a=5,b=10,求x</p>
@@ -90,60 +88,62 @@ result$root
 <pre><code>## [1] -2
 </code></pre>
 
-<pre><code class="language-r">x&lt;-seq(-5,5,by=0.01)
-y&lt;-f1(x,a,b)
-df&lt;-data.frame(x,y)
-ggplot2::aes(x,y)
+<h2 id="模拟组合">模拟组合</h2>
+
+<p>從20個人中選出人數為3,4,5的三個委員會，A和B被選入同一個委員會的概率有多大？</p>
+
+<pre><code class="language-r">choosecomm&lt;-function(comdat,comsize){
+
+committee&lt;-sample(comdat$whosleft,comsize)
+
+#定义AB为1:2的序号
+
+comdat$numabchosen&lt;-length(intersect(1:2,committee))
+
+if(comdat$numabchosen==2)
+
+   comdat$countabsamecomm&lt;-comdat$countabsamecomm+1
+
+   comdat$whosleft&lt;-setdiff(comdat$whosleft,committee)
+
+   return(comdat)
+
+}
+
+ 
+
+sim&lt;-function(nreps){
+
+commdata&lt;-list()
+
+commdata$countabsamecomm&lt;-0
+
+for (rep in 1:nreps){
+
+commdata$whosleft&lt;-1:20
+
+commdata$numabchosen&lt;-0
+
+commdata&lt;-choosecomm(commdata,5)
+
+if (commdata$numabchosen&gt;0) next
+
+commdata&lt;-choosecomm(commdata,4)
+
+if (commdata$numabchosen&gt;0) next
+
+commdata&lt;-choosecomm(commdata,3)
+
+}
+
+print(commdata$countabsamecomm/nreps)
+
+}
+#如果用解析的方法，如下概率0.1
+(choose(18,1)*choose(17,4)*choose(13,5)+choose(18,2)*choose(16,3)*choose(13,5)+choose(18,3)*choose(15,3)*choose(12,4))/(choose(20,3)*choose(17,4)*choose(13,5))
 </code></pre>
 
-<pre><code>## Registered S3 methods overwritten by 'ggplot2':
-##   method         from 
-##   [.quosures     rlang
-##   c.quosures     rlang
-##   print.quosures rlang
-</code></pre>
-
-<pre><code>## Aesthetic mapping: 
-## * `x` -&gt; `x`
-## * `y` -&gt; `y`
-</code></pre>
-
-<pre><code class="language-r">ggplot2::geom_line(col=&quot;red&quot;)
-</code></pre>
-
-<pre><code>## geom_line: na.rm = FALSE
-## stat_identity: na.rm = FALSE
-## position_identity
-</code></pre>
-
-<pre><code class="language-r">ggplot2::geom_vline(yintercept=0)
-</code></pre>
-
-<pre><code>## Warning: Ignoring unknown parameters: yintercept
-</code></pre>
-
-<pre><code>## geom_vline: na.rm = FALSE
-## stat_identity: na.rm = FALSE
-## position_identity
-</code></pre>
-
-<pre><code class="language-r">ggplot2::geom_hline(yintercept=0)
-</code></pre>
-
-<pre><code>## mapping: yintercept = ~yintercept 
-## geom_hline: na.rm = FALSE
-## stat_identity: na.rm = FALSE
-## position_identity
-</code></pre>
-
-<pre><code class="language-r">ggplot2::ggtitle(paste(&quot;y=&quot;,a,&quot;*x+&quot;,b))
-</code></pre>
-
-<pre><code>## $title
-## [1] &quot;y= 5 *x+ 10&quot;
-## 
-## attr(,&quot;class&quot;)
-## [1] &quot;labels&quot;
+<pre><code>## [1] 0.1
 </code></pre>
 
     </div>

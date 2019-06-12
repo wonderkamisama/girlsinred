@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.55.5" />
+
+
+<title>Chart/圖表（DiagrammeR） - A JOJO website</title>
+<meta property="og:title" content="Chart/圖表（DiagrammeR） - A JOJO website">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/rainbow.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="https://user.qzone.qq.com/975940422/infocenter">QQ</a></li>
+    
+    <li><a href="http://www.scu.edu.cn/">四川大學</a></li>
+    
+    <li><a href="/about/">關於我</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">Chart/圖表（DiagrammeR）</h1>
+
+    
+    <span class="article-date">2019-06-12</span>
+    
+
+    <div class="article-content">
+      
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/viz/viz.js"></script>
+<link href="/rmarkdown-libs/DiagrammeR-styles/styles.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/grViz-binding/grViz.js"></script>
+<script src="/rmarkdown-libs/d3/d3.min.js"></script>
+<script src="/rmarkdown-libs/dagre/dagre-d3.min.js"></script>
+<link href="/rmarkdown-libs/mermaid/dist/mermaid.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/mermaid/dist/mermaid.slim.min.js"></script>
+<script src="/rmarkdown-libs/chromatography/chromatography.js"></script>
+<script src="/rmarkdown-libs/DiagrammeR-binding/DiagrammeR.js"></script>
+
+
+<div id="section" class="section level2">
+<h2>儒学的做人准则：</h2>
+<blockquote>
+<p>《礼记·大学》：“古之欲明明德于天下者，先治其国；欲治其国者，先齐其家；欲齐其家者，先修其身；欲修其身者，先正其心；欲正其心者，先诚其意；欲诚其意者，先致其知，致知在格物。物格而后知至，知至而后意诚，意诚而后心正，心正而后身修，身修而后家齐，家齐而后国治，国治而后天下平。”</p>
+</blockquote>
+<pre class="r"><code>library(DiagrammeR)</code></pre>
+<pre><code>## Registered S3 methods overwritten by &#39;ggplot2&#39;:
+##   method         from 
+##   [.quosures     rlang
+##   c.quosures     rlang
+##   print.quosures rlang</code></pre>
+<pre class="r"><code>DiagrammeR::grViz(&quot;
+digraph RmarkDown {
+graph [rankdir = LR]
+node [shape=rectangle
+  style=filled
+  color=orange
+  fillcolor=salmon
+  fontcolor=white
+  arrowcolor=red
+  alpha=55
+  fontname = &#39;微软雅黑&#39;]
+edge [color = grey]
+&#39;修身&#39; -&gt; &#39;齐家&#39;
+&#39;齐家&#39; -&gt; &#39;治国&#39;
+&#39;治国&#39; -&gt; &#39;平天下&#39;
+    }
+    &quot;, width=600)</code></pre>
+<div id="htmlwidget-1" style="width:600px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"diagram":"\ndigraph RmarkDown {\ngraph [rankdir = LR]\nnode [shape=rectangle\n  style=filled\n  color=orange\n  fillcolor=salmon\n  fontcolor=white\n  arrowcolor=red\n  alpha=55\n  fontname = \"微软雅黑\"]\nedge [color = grey]\n\"修身\" -> \"齐家\"\n\"齐家\" -> \"治国\"\n\"治国\" -> \"平天下\"\n    }\n    ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="section-1" class="section level2">
+<h2>权力的游戏最终季：是人性的扭曲还是道德的沦丧？</h2>
+<blockquote>
+<p>盼星星盼月亮终于盼来了权游（GOT）的完结季，然而威风了八季的夜王被一刀毙命，开创了反派死于话少的先河；和蔼可亲的丹妮莉丝一言不合直接屠城，莫名走上了父亲的老路；布兰白捡一个铁王座，或成最终赢家……佳作逃不过烂尾的宿命，只好默默吐槽猪油蒙了心的编剧(:з」∠)</p>
+</blockquote>
+<pre class="r"><code>library(DiagrammeR)
+DiagrammeR(&quot;
+sequenceDiagram;
+马丁-&gt;&gt;编剧:进度还来得及吗;
+编剧-&gt;&gt;马丁:恐怕有点悬;
+马丁-&gt;&gt;编剧:那我先把结局告诉你们吧;
+马丁-&gt;&gt;编剧:这个结局两位大爷满意吗;
+alt 如果满意
+编剧-&gt;&gt;马丁: 很满意;
+马丁-&gt;&gt;编剧:递过书稿;
+编剧-&gt;&gt;马丁:还你一个歪到八姨妈家的结局;
+马丁-&gt;&gt;观众读者:递过书稿;
+else 不满意
+编剧-&gt;&gt;马丁:你怎么能妨碍我们恰烂钱;
+观众读者-&gt;&gt;马丁:这才是我们想要的结局啊;
+end
+           &quot;)</code></pre>
+<div id="htmlwidget-2" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"diagram":"\nsequenceDiagram;\n马丁->>编剧:进度还来得及吗;\n编剧->>马丁:恐怕有点悬;\n马丁->>编剧:那我先把结局告诉你们吧;\n马丁->>编剧:这个结局两位大爷满意吗;\nalt 如果满意\n编剧->>马丁: 很满意;\n马丁->>编剧:递过书稿;\n编剧->>马丁:还你一个歪到八姨妈家的结局;\n马丁->>观众读者:递过书稿;\nelse 不满意\n编剧->>马丁:你怎么能妨碍我们恰烂钱;\n观众读者->>马丁:这才是我们想要的结局啊;\nend\n           "},"evals":[],"jsHooks":[]}</script>
+</div>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

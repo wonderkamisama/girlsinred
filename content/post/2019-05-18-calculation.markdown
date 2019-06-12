@@ -7,7 +7,7 @@ categories:
   - R
 tags: []
 ---
-心血來潮地想要嘗試一些運算,需要安裝一個新的包ggplot2
+
 ## 一元方程
 ax+b=0,设a=5,b=10,求x
 
@@ -22,72 +22,62 @@ result$root
 ```
 ## [1] -2
 ```
+## 模拟组合
+從20個人中選出人數為3,4,5的三個委員會，A和B被選入同一個委員會的概率有多大？
 
 ```r
-x<-seq(-5,5,by=0.01)
-y<-f1(x,a,b)
-df<-data.frame(x,y)
-ggplot2::aes(x,y)
+choosecomm<-function(comdat,comsize){
+
+committee<-sample(comdat$whosleft,comsize)
+
+#定义AB为1:2的序号
+
+comdat$numabchosen<-length(intersect(1:2,committee))
+
+if(comdat$numabchosen==2)
+
+   comdat$countabsamecomm<-comdat$countabsamecomm+1
+
+   comdat$whosleft<-setdiff(comdat$whosleft,committee)
+
+   return(comdat)
+
+}
+
+ 
+
+sim<-function(nreps){
+
+commdata<-list()
+
+commdata$countabsamecomm<-0
+
+for (rep in 1:nreps){
+
+commdata$whosleft<-1:20
+
+commdata$numabchosen<-0
+
+commdata<-choosecomm(commdata,5)
+
+if (commdata$numabchosen>0) next
+
+commdata<-choosecomm(commdata,4)
+
+if (commdata$numabchosen>0) next
+
+commdata<-choosecomm(commdata,3)
+
+}
+
+print(commdata$countabsamecomm/nreps)
+
+}
+#如果用解析的方法，如下概率0.1
+(choose(18,1)*choose(17,4)*choose(13,5)+choose(18,2)*choose(16,3)*choose(13,5)+choose(18,3)*choose(15,3)*choose(12,4))/(choose(20,3)*choose(17,4)*choose(13,5))
 ```
 
 ```
-## Registered S3 methods overwritten by 'ggplot2':
-##   method         from 
-##   [.quosures     rlang
-##   c.quosures     rlang
-##   print.quosures rlang
-```
-
-```
-## Aesthetic mapping: 
-## * `x` -> `x`
-## * `y` -> `y`
-```
-
-```r
-ggplot2::geom_line(col="red")
-```
-
-```
-## geom_line: na.rm = FALSE
-## stat_identity: na.rm = FALSE
-## position_identity
-```
-
-```r
-ggplot2::geom_vline(yintercept=0)
-```
-
-```
-## Warning: Ignoring unknown parameters: yintercept
-```
-
-```
-## geom_vline: na.rm = FALSE
-## stat_identity: na.rm = FALSE
-## position_identity
-```
-
-```r
-ggplot2::geom_hline(yintercept=0)
-```
-
-```
-## mapping: yintercept = ~yintercept 
-## geom_hline: na.rm = FALSE
-## stat_identity: na.rm = FALSE
-## position_identity
-```
-
-```r
-ggplot2::ggtitle(paste("y=",a,"*x+",b))
-```
-
-```
-## $title
-## [1] "y= 5 *x+ 10"
-## 
-## attr(,"class")
-## [1] "labels"
+## [1] 0.1
 ```
 

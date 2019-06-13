@@ -1,0 +1,26 @@
+---
+title: A competent lover/戀愛達人
+author: wanda
+date: '2019-06-08'
+slug: a-competent-lover
+categories:
+  - R
+tags: []
+---
+如何做一個合格的男/女朋友呢？我記得我似乎在互聯網分析與治理的課程中提出過這個問題，那麼現在就讓我們利用一個小小的時間工具來解决這個煩惱吧！
+
+如何做一個稱職的戀人呢(っ•̀ω•́)っ
+
+假設你和你的戀人是在2017年10月26號正式在一起的：
+
+```{r}
+x<-Sys.Date()
+y<-as.Date("2017-10-26")
+x1<-as.numeric(format(x,"%Y"))
+y1<-as.numeric(format(y,"%Y"))
+print(paste("今天是你們在一起的",x1-y1,"周年"))
+```
+```{r}
+
+```
+

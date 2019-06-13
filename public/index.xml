@@ -28,8 +28,20 @@
       
       <guid>/2019/06/11/mapping/</guid>
       <description>很簡單的點圖和點線圖：
-plot(c(1:6),c(1:6),main=&amp;quot;test&amp;quot;,type=&amp;quot;p&amp;quot;,xlim = c(0,7),ylim = c(0,7))plot(c(1:6),c(1:6),main=&amp;quot;test&amp;quot;,type=&amp;quot;b&amp;quot;,xlim = c(0,7),ylim = c(0,7))使用ggplot2和RColorBrewer畫一個圖:
+plot(c(1:6),c(1:6),main=&amp;quot;test&amp;quot;,type=&amp;quot;p&amp;quot;,xlim = c(0,7),ylim = c(0,7))plot(c(1:6),c(1:6),main=&amp;quot;test&amp;quot;,type=&amp;quot;b&amp;quot;,xlim = c(0,7),ylim = c(0,7))使用ggplot2和RColorBrewer畫一個圖:(鳶尾花是資料挖掘常用到的一個數据集,有150個鳶尾花樣本資訊,包括3個物種,每個樣本具有5個特徵。)
 library(ggplot2)## Registered S3 methods overwritten by &amp;#39;ggplot2&amp;#39;:## method from ## [.quosures rlang## c.quosures rlang## print.quosures rlanglibrary(RColorBrewer)data(&amp;quot;iris&amp;quot;)iris &amp;lt;- data.frame(iris)col &amp;lt;- brewer.pal(3, &amp;quot;Set1&amp;quot;)ggplot(data = iris, aes(Sepal.Length, Sepal.Width, colour = Species)) + geom_point(size = 5, alpha = .</description>
+    </item>
+    
+    <item>
+      <title>A competent lover/戀愛達人</title>
+      <link>/2019/06/08/a-competent-lover/</link>
+      <pubDate>Sat, 08 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/06/08/a-competent-lover/</guid>
+      <description>如何做一個合格的男/女朋友呢？我記得我似乎在互聯網分析與治理的課程中提出過這個問題，那麼現在就讓我們利用一個小小的時間工具來解决這個煩惱吧！
+如何做一個稱職的戀人呢(っ•̀ω•́)っ
+假設你和你的戀人是在2017年10月26號正式在一起的：
+x&amp;lt;-Sys.Date()y&amp;lt;-as.Date(&amp;quot;2017-10-26&amp;quot;)x1&amp;lt;-as.numeric(format(x,&amp;quot;%Y&amp;quot;))y1&amp;lt;-as.numeric(format(y,&amp;quot;%Y&amp;quot;))print(paste(&amp;quot;今天是你們在一起的&amp;quot;,x1-y1,&amp;quot;周年&amp;quot;))## [1] &amp;quot;今天是你們在一起的 2 周年&amp;quot;</description>
     </item>
     
     <item>

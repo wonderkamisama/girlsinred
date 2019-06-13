@@ -41,7 +41,7 @@ library(ggplot2)## Registered S3 methods overwritten by &amp;#39;ggplot2&amp;#3
       <description>如何做一個合格的男/女朋友呢？我記得我似乎在互聯網分析與治理的課程中提出過這個問題，那麼現在就讓我們利用一個小小的時間工具來解决這個煩惱吧！
 如何做一個稱職的戀人呢(っ•̀ω•́)っ
 假設你和你的戀人是在2017年10月26號正式在一起的：
-x&amp;lt;-Sys.Date()y&amp;lt;-as.Date(&amp;quot;2017-10-26&amp;quot;)x1&amp;lt;-as.numeric(format(x,&amp;quot;%Y&amp;quot;))y1&amp;lt;-as.numeric(format(y,&amp;quot;%Y&amp;quot;))print(paste(&amp;quot;今天是你們在一起的&amp;quot;,x1-y1,&amp;quot;周年&amp;quot;))## [1] &amp;quot;今天是你們在一起的 2 周年&amp;quot;</description>
+x&amp;lt;-Sys.Date()y&amp;lt;-as.Date(&amp;quot;2017-10-26&amp;quot;)x1&amp;lt;-as.numeric(format(x,&amp;quot;%Y&amp;quot;))y1&amp;lt;-as.numeric(format(y,&amp;quot;%Y&amp;quot;))print(paste(&amp;quot;今天是你們在一起的&amp;quot;,x1-y1,&amp;quot;周年&amp;quot;))## [1] &amp;quot;今天是你們在一起的 2 周年&amp;quot;thisDay&amp;lt;-Sys.Date()lastDay&amp;lt;-as.Date(&amp;quot;2017-10-26&amp;quot;)print(paste(&amp;quot;今天是你們在一起的第&amp;quot;,difftime(thisDay,lastDay,units = &amp;quot;days&amp;quot;),&amp;quot;天&amp;quot;))## [1] &amp;quot;今天是你們在一起的第 595 天&amp;quot;</description>
     </item>
     
     <item>

@@ -19,8 +19,14 @@ y<-as.Date("2017-10-26")
 x1<-as.numeric(format(x,"%Y"))
 y1<-as.numeric(format(y,"%Y"))
 print(paste("今天是你們在一起的",x1-y1,"周年"))
-```
-```{r}
 
 ```
+```{r}
+thisDay<-Sys.Date()
+lastDay<-as.Date("2017-10-26")
+print(paste("今天是你們在一起的第",difftime(thisDay,lastDay,units = "days"),"天"))
+```
+
+
+
 

@@ -84,6 +84,10 @@ x1&lt;-as.numeric(format(x,&quot;%Y&quot;))
 y1&lt;-as.numeric(format(y,&quot;%Y&quot;))
 print(paste(&quot;今天是你們在一起的&quot;,x1-y1,&quot;周年&quot;))</code></pre>
 <pre><code>## [1] &quot;今天是你們在一起的 2 周年&quot;</code></pre>
+<pre class="r"><code>thisDay&lt;-Sys.Date()
+lastDay&lt;-as.Date(&quot;2017-10-26&quot;)
+print(paste(&quot;今天是你們在一起的第&quot;,difftime(thisDay,lastDay,units = &quot;days&quot;),&quot;天&quot;))</code></pre>
+<pre><code>## [1] &quot;今天是你們在一起的第 595 天&quot;</code></pre>
 
     </div>
   </article>

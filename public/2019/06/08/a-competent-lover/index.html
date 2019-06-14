@@ -87,7 +87,11 @@ print(paste(&quot;今天是你們在一起的&quot;,x1-y1,&quot;周年&quot;))</
 <pre class="r"><code>thisDay&lt;-Sys.Date()
 lastDay&lt;-as.Date(&quot;2017-10-26&quot;)
 print(paste(&quot;今天是你們在一起的第&quot;,difftime(thisDay,lastDay,units = &quot;days&quot;),&quot;天&quot;))</code></pre>
-<pre><code>## [1] &quot;今天是你們在一起的第 595 天&quot;</code></pre>
+<pre><code>## [1] &quot;今天是你們在一起的第 596 天&quot;</code></pre>
+<pre class="r"><code>thisDay&lt;-as.Date(&quot;2020-2-14&quot;)
+lastDay&lt;-Sys.Date()
+print(paste(&quot;距離下一個情人節還有&quot;,difftime(thisDay,lastDay,units = &quot;days&quot;),&quot;天&quot;))</code></pre>
+<pre><code>## [1] &quot;距離下一個情人節還有 245 天&quot;</code></pre>
 
     </div>
   </article>

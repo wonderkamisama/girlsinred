@@ -26,6 +26,11 @@ thisDay<-Sys.Date()
 lastDay<-as.Date("2017-10-26")
 print(paste("今天是你們在一起的第",difftime(thisDay,lastDay,units = "days"),"天"))
 ```
+```{r}
+thisDay<-as.Date("2020-2-14")
+lastDay<-Sys.Date()
+print(paste("距離下一個情人節還有",difftime(thisDay,lastDay,units = "days"),"天"))
+```
 
 
 

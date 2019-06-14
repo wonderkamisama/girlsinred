@@ -1,5 +1,5 @@
 ---
-title: A competent lover/戀愛達人
+title: A competent lover/戀愛達人（更新統計圖）
 author: wanda
 date: '2019-06-08'
 slug: a-competent-lover
@@ -32,6 +32,18 @@ lastDay<-Sys.Date()
 print(paste("距離下一個情人節還有",difftime(thisDay,lastDay,units = "days"),"天"))
 ```
 
+下麵是久等了的紮心環節☹
 
+```{r}
+H <- c(100,80,60,40)
+barplot(H,xlab = "恋爱时长",ylab = "彼此好感度",main = "罗曼蒂克消亡史",
+        names.arg=c("第一年","第二年","第三年","第四年"),col="pink")
+       
+
+```
+```{r}
+v <- c(5,9,6,13,10,18,15,25,30,27,45,55)
+plot(v,type = "l",col="blue",xlab = "月份",ylab = "吵架次数",main = "情侣矛盾激烈程度")
+```
 
 

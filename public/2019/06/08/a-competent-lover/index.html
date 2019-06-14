@@ -6,8 +6,8 @@
 <meta name="generator" content="Hugo 0.55.5" />
 
 
-<title>A competent lover/戀愛達人 - A JOJO website</title>
-<meta property="og:title" content="A competent lover/戀愛達人 - A JOJO website">
+<title>A competent lover/戀愛達人（更新統計圖） - A JOJO website</title>
+<meta property="og:title" content="A competent lover/戀愛達人（更新統計圖） - A JOJO website">
 
 
   <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
@@ -65,7 +65,7 @@
     <span class="article-duration">1 min read</span>
     
 
-    <h1 class="article-title">A competent lover/戀愛達人</h1>
+    <h1 class="article-title">A competent lover/戀愛達人（更新統計圖）</h1>
 
     
     <span class="article-date">2019-06-08</span>
@@ -92,6 +92,14 @@ print(paste(&quot;今天是你們在一起的第&quot;,difftime(thisDay,lastDay,
 lastDay&lt;-Sys.Date()
 print(paste(&quot;距離下一個情人節還有&quot;,difftime(thisDay,lastDay,units = &quot;days&quot;),&quot;天&quot;))</code></pre>
 <pre><code>## [1] &quot;距離下一個情人節還有 245 天&quot;</code></pre>
+<p>下麵是久等了的紮心環節☹</p>
+<pre class="r"><code>H &lt;- c(100,80,60,40)
+barplot(H,xlab = &quot;恋爱时长&quot;,ylab = &quot;彼此好感度&quot;,main = &quot;罗曼蒂克消亡史&quot;,
+        names.arg=c(&quot;第一年&quot;,&quot;第二年&quot;,&quot;第三年&quot;,&quot;第四年&quot;),col=&quot;pink&quot;)</code></pre>
+<p><img src="/post/2019-06-08-a-competent-lover_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<pre class="r"><code>v &lt;- c(5,9,6,13,10,18,15,25,30,27,45,55)
+plot(v,type = &quot;l&quot;,col=&quot;blue&quot;,xlab = &quot;月份&quot;,ylab = &quot;吵架次数&quot;,main = &quot;情侣矛盾激烈程度&quot;)</code></pre>
+<p><img src="/post/2019-06-08-a-competent-lover_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 
     </div>
   </article>

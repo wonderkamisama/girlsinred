@@ -33,7 +33,7 @@ library(ggplot2)## Registered S3 methods overwritten by &amp;#39;ggplot2&amp;#3
     </item>
     
     <item>
-      <title>A competent lover/戀愛達人</title>
+      <title>A competent lover/戀愛達人（更新統計圖）</title>
       <link>/2019/06/08/a-competent-lover/</link>
       <pubDate>Sat, 08 Jun 2019 00:00:00 +0000</pubDate>
       
@@ -41,7 +41,8 @@ library(ggplot2)## Registered S3 methods overwritten by &amp;#39;ggplot2&amp;#3
       <description>如何做一個合格的男/女朋友呢？我記得我似乎在互聯網分析與治理的課程中提出過這個問題，那麼現在就讓我們利用一個小小的時間工具來解决這個煩惱吧！
 如何做一個稱職的戀人呢(っ•̀ω•́)っ
 假設你和你的戀人是在2017年10月26號正式在一起的：
-x&amp;lt;-Sys.Date()y&amp;lt;-as.Date(&amp;quot;2017-10-26&amp;quot;)x1&amp;lt;-as.numeric(format(x,&amp;quot;%Y&amp;quot;))y1&amp;lt;-as.numeric(format(y,&amp;quot;%Y&amp;quot;))print(paste(&amp;quot;今天是你們在一起的&amp;quot;,x1-y1,&amp;quot;周年&amp;quot;))## [1] &amp;quot;今天是你們在一起的 2 周年&amp;quot;thisDay&amp;lt;-Sys.Date()lastDay&amp;lt;-as.Date(&amp;quot;2017-10-26&amp;quot;)print(paste(&amp;quot;今天是你們在一起的第&amp;quot;,difftime(thisDay,lastDay,units = &amp;quot;days&amp;quot;),&amp;quot;天&amp;quot;))## [1] &amp;quot;今天是你們在一起的第 596 天&amp;quot;thisDay&amp;lt;-as.Date(&amp;quot;2020-2-14&amp;quot;)lastDay&amp;lt;-Sys.Date()print(paste(&amp;quot;距離下一個情人節還有&amp;quot;,difftime(thisDay,lastDay,units = &amp;quot;days&amp;quot;),&amp;quot;天&amp;quot;))## [1] &amp;quot;距離下一個情人節還有 245 天&amp;quot;</description>
+x&amp;lt;-Sys.Date()y&amp;lt;-as.Date(&amp;quot;2017-10-26&amp;quot;)x1&amp;lt;-as.numeric(format(x,&amp;quot;%Y&amp;quot;))y1&amp;lt;-as.numeric(format(y,&amp;quot;%Y&amp;quot;))print(paste(&amp;quot;今天是你們在一起的&amp;quot;,x1-y1,&amp;quot;周年&amp;quot;))## [1] &amp;quot;今天是你們在一起的 2 周年&amp;quot;thisDay&amp;lt;-Sys.Date()lastDay&amp;lt;-as.Date(&amp;quot;2017-10-26&amp;quot;)print(paste(&amp;quot;今天是你們在一起的第&amp;quot;,difftime(thisDay,lastDay,units = &amp;quot;days&amp;quot;),&amp;quot;天&amp;quot;))## [1] &amp;quot;今天是你們在一起的第 596 天&amp;quot;thisDay&amp;lt;-as.Date(&amp;quot;2020-2-14&amp;quot;)lastDay&amp;lt;-Sys.Date()print(paste(&amp;quot;距離下一個情人節還有&amp;quot;,difftime(thisDay,lastDay,units = &amp;quot;days&amp;quot;),&amp;quot;天&amp;quot;))## [1] &amp;quot;距離下一個情人節還有 245 天&amp;quot;下麵是久等了的紮心環節☹
+H &amp;lt;- c(100,80,60,40)barplot(H,xlab = &amp;quot;恋爱时长&amp;quot;,ylab = &amp;quot;彼此好感度&amp;quot;,main = &amp;quot;罗曼蒂克消亡史&amp;quot;,names.arg=c(&amp;quot;第一年&amp;quot;,&amp;quot;第二年&amp;quot;,&amp;quot;第三年&amp;quot;,&amp;quot;第四年&amp;quot;),col=&amp;quot;pink&amp;quot;)v &amp;lt;- c(5,9,6,13,10,18,15,25,30,27,45,55)plot(v,type = &amp;quot;l&amp;quot;,col=&amp;quot;blue&amp;quot;,xlab = &amp;quot;月份&amp;quot;,ylab = &amp;quot;吵架次数&amp;quot;,main = &amp;quot;情侣矛盾激烈程度&amp;quot;)</description>
     </item>
     
     <item>

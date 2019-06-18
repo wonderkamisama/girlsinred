@@ -46,17 +46,7 @@ H &amp;lt;- c(100,80,60,40)barplot(H,xlab = &amp;quot;恋爱时长&amp;quot;,yl
     </item>
     
     <item>
-      <title>Time tool/時間工具</title>
-      <link>/2019/06/01/time-tool/</link>
-      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/2019/06/01/time-tool/</guid>
-      <description>現在的時間是：
-Sys.time()## [1] &amp;quot;2019-06-11 21:06:20 CST&amp;quot;</description>
-    </item>
-    
-    <item>
-      <title>Harvest/爬蟲</title>
+      <title>Harvest/爬蟲（更新英文網站爬蟲練習）</title>
       <link>/2019/05/19/harvest/</link>
       <pubDate>Sun, 19 May 2019 00:00:00 +0000</pubDate>
       

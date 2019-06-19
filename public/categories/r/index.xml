@@ -6,10 +6,21 @@
     <description>Recent content in R on A JOJO website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 12 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 15 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Eng-crawler/英文網站爬蟲</title>
+      <link>/2019/06/15/eng-harvest/</link>
+      <pubDate>Sat, 15 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/06/15/eng-harvest/</guid>
+      <description>英文網站爬蟲個人練習在瞭解一定基本知識後，有點手癢想嘗試下英文網站的爬蟲。AO3是一個外國網友發佈自己寫的同人作品的網站，基本演繹法是我從國中開始看的美劇，而我選擇的這篇文章我本身也很喜歡，很想知道它爬蟲過後會是什麼樣子的。
+其實爬蟲也需要一定網頁分析的內容，索性我選擇的這個網站並不是很難分析，可以一下定位到正文所在的位置。又由於是英文網站，我們需要一個英文的停用詞表，我在互聯網上找到了一個，又根據實際需要進行了一些優化（比如去除主要角色的名字，解决一部分大小寫問題等），下麵是具體的操作和結果;-)
+library(rvest)## 载入需要的程辑包：xml2url&amp;lt;-&amp;quot;https://archiveofourown.org/works/916456&amp;quot;web&amp;lt;-read_html(url, encoding=&amp;quot;utf-8&amp;quot;)position&amp;lt;-web %&amp;gt;% html_nodes(&amp;quot;div.userstuff&amp;quot;) %&amp;gt;% html_text()library(jiebaR)## 载入需要的程辑包：jiebaRDengine_s&amp;lt;-worker(stop_word = &amp;quot;D:\\engstop.txt&amp;quot;)#初始化分词引擎并加载停用词。seg&amp;lt;-segment(position,engine_s)#分词f&amp;lt;-freq(seg) #统计词频f&amp;lt;-f[order(f[2],decreasing=TRUE),] #根据词频降序排列head(f)## char freq## 933 Sherlock 212## 892 bees 78## 655 time 29## 900 eyes 29## 1928 ll 28## 965 roof 25library(wordcloud2)f1&amp;lt;-f[1:150,]wordcloud2(f1, size = 1.5 , minRotation = -pi/2, maxRotation = -pi/2){&#34;</description>
+    </item>
     
     <item>
       <title>Chart/圖表（DiagrammeR）</title>
@@ -46,7 +57,7 @@ H &amp;lt;- c(100,80,60,40)barplot(H,xlab = &amp;quot;恋爱时长&amp;quot;,yl
     </item>
     
     <item>
-      <title>Harvest/爬蟲（更新英文網站爬蟲練習）</title>
+      <title>Crawler/爬蟲</title>
       <link>/2019/05/19/harvest/</link>
       <pubDate>Sun, 19 May 2019 00:00:00 +0000</pubDate>
       

@@ -1,0 +1,36 @@
+---
+title: Eng-crawler/英文網站爬蟲
+author: jojo
+date: '2019-06-15'
+slug: eng-harvest
+categories:
+  - R
+tags: []
+---
+
+# 英文網站爬蟲個人練習
+
+在瞭解一定基本知識後，有點手癢想嘗試下英文網站的爬蟲。AO3是一個外國網友發佈自己寫的同人作品的網站，基本演繹法是我從國中開始看的美劇，而我選擇的這篇文章我本身也很喜歡，很想知道它爬蟲過後會是什麼樣子的。
+
+其實爬蟲也需要一定網頁分析的內容，索性我選擇的這個網站並不是很難分析，可以一下定位到正文所在的位置。又由於是英文網站，我們需要一個英文的停用詞表，我在互聯網上找到了一個，又根據實際需要進行了一些優化（比如去除主要角色的名字，解决一部分大小寫問題等），下麵是具體的操作和結果;-)
+
+```{r}
+
+library(rvest)
+url<-"https://archiveofourown.org/works/916456"
+web<-read_html(url, encoding="utf-8")
+position<-web %>% html_nodes("div.userstuff") %>% html_text()
+
+library(jiebaR)
+engine_s<-worker(stop_word = "D:\\engstop.txt")#初始化分词引擎并加载停用词。
+seg<-segment(position,engine_s)#分词
+f<-freq(seg) #统计词频
+f<-f[order(f[2],decreasing=TRUE),] #根据词频降序排列
+head(f)
+
+library(wordcloud2)
+f1<-f[1:150,]
+wordcloud2(f1, size = 1.5 , minRotation = -pi/2, maxRotation = -pi/2)
+
+```
+

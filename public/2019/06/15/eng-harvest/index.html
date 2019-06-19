@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.55.5" />
+
+
+<title>Eng-crawler/英文網站爬蟲 - A JOJO website</title>
+<meta property="og:title" content="Eng-crawler/英文網站爬蟲 - A JOJO website">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/rainbow.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="https://user.qzone.qq.com/975940422/infocenter">QQ</a></li>
+    
+    <li><a href="http://www.scu.edu.cn/">四川大學</a></li>
+    
+    <li><a href="/about/">關於我</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">Eng-crawler/英文網站爬蟲</h1>
+
+    
+    <span class="article-date">2019-06-15</span>
+    
+
+    <div class="article-content">
+      
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<link href="/rmarkdown-libs/wordcloud2/wordcloud.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/wordcloud2/wordcloud2-all.js"></script>
+<script src="/rmarkdown-libs/wordcloud2/hover.js"></script>
+<script src="/rmarkdown-libs/wordcloud2-binding/wordcloud2.js"></script>
+
+
+<div id="section" class="section level1">
+<h1>英文網站爬蟲個人練習</h1>
+<p>在瞭解一定基本知識後，有點手癢想嘗試下英文網站的爬蟲。AO3是一個外國網友發佈自己寫的同人作品的網站，基本演繹法是我從國中開始看的美劇，而我選擇的這篇文章我本身也很喜歡，很想知道它爬蟲過後會是什麼樣子的。</p>
+<p>其實爬蟲也需要一定網頁分析的內容，索性我選擇的這個網站並不是很難分析，可以一下定位到正文所在的位置。又由於是英文網站，我們需要一個英文的停用詞表，我在互聯網上找到了一個，又根據實際需要進行了一些優化（比如去除主要角色的名字，解决一部分大小寫問題等），下麵是具體的操作和結果;-)</p>
+<pre class="r"><code>library(rvest)</code></pre>
+<pre><code>## 载入需要的程辑包：xml2</code></pre>
+<pre class="r"><code>url&lt;-&quot;https://archiveofourown.org/works/916456&quot;
+web&lt;-read_html(url, encoding=&quot;utf-8&quot;)
+position&lt;-web %&gt;% html_nodes(&quot;div.userstuff&quot;) %&gt;% html_text()
+
+library(jiebaR)</code></pre>
+<pre><code>## 载入需要的程辑包：jiebaRD</code></pre>
+<pre class="r"><code>engine_s&lt;-worker(stop_word = &quot;D:\\engstop.txt&quot;)#初始化分词引擎并加载停用词。
+seg&lt;-segment(position,engine_s)#分词
+f&lt;-freq(seg) #统计词频
+f&lt;-f[order(f[2],decreasing=TRUE),] #根据词频降序排列
+head(f)</code></pre>
+<pre><code>##          char freq
+## 933  Sherlock  212
+## 892      bees   78
+## 655      time   29
+## 900      eyes   29
+## 1928       ll   28
+## 965      roof   25</code></pre>
+<pre class="r"><code>library(wordcloud2)
+f1&lt;-f[1:150,]
+wordcloud2(f1, size = 1.5 , minRotation = -pi/2, maxRotation = -pi/2)</code></pre>
+<div id="htmlwidget-1" style="width:672px;height:480px;" class="wordcloud2 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"word":["Sherlock","bees","time","eyes","ll","roof","hands","watsonia","hive","bed","head","hives","ve","bee","book","hand","finally","takes","Apis","idea","mellifera","walks","sleep","feel","box","couch","What","floor","read","people","sits","allergic","replies","days","hard","If","We","Moriarty","brownstone","detective","watching","moment","Why","Oh","Then","tells","told","carefully","body","deal","pain","holding","bomb","months","quietly","life","nods","A","So","hospital","sitting","Bruce","smile","decision","care","tea","pocket","His","front","retire","retired","doctor","subspecies","Detective","Do","learn","voice","house","reading","starts","shoulder","table","feeling","day","watch","couldn","manage","fear","leg","standing","test","leaving","likes","This","queen","stands","talking","watches","death","steps","times","observation","fine","feels","partner","breath","call","Yeah","There","met","Marcus","worried","stay","hurt","figure","consulting","keeping","My","safe","left","remember","Of","person","morning","understand","close","week","announces","stares","start","Well","Yes","water","hip","wouldn","ago","retiring","gently","Bell","Captain","suddenly","lie","door","plans","Osmia","pretty","mouth","imagine","learned","lost"],"freq":[212,78,29,29,28,25,24,22,21,21,20,20,19,19,18,18,16,16,16,14,14,14,14,14,13,13,13,13,13,12,12,11,11,11,11,11,11,11,10,10,10,10,10,9,9,9,9,9,9,9,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,5,5,5,5,5,5,5,5,5,5,5,5,5,5],"fontFamily":"Segoe UI","fontWeight":"bold","color":"random-dark","minSize":0,"weightFactor":1.27358490566038,"backgroundColor":"white","gridSize":0,"minRotation":-1.5707963267949,"maxRotation":-1.5707963267949,"shuffle":true,"rotateRatio":0.4,"shape":"circle","ellipticity":0.65,"figBase64":null,"hover":null},"evals":[],"jsHooks":{"render":[{"code":"function(el,x){\n                        console.log(123);\n                        if(!iii){\n                          window.location.reload();\n                          iii = False;\n\n                        }\n  }","data":null}]}}</script>
+</div>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

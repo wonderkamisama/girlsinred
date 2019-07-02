@@ -1,0 +1,71 @@
+---
+title: plotting/繪圖與視覺化分析
+author: wanda
+date: '2019-06-30'
+slug: plotting
+categories:
+  - R
+tags: []
+---
+
+這部分內容主要來自雪城大學的教授給我們學院資訊管理與資訊系統專業的同學們開設的國際周課程（Machine Learning,Data Mining,Predictive
+Modeling,Statistics），我去旁聽了一下，第一講說的正好是有關R語言的一些東西，具體的知識我還在理解中。
+
+列出來的錶還是很好看的。
+
+```{r}
+library(ggplot2)
+data(mpg, package = "ggplot2")
+dim(mpg)
+str(mpg)
+knitr::kable(mpg)
+```
+
+```{r}
+char_var <- sapply(mpg, is.character)
+mpg[, char_var] <- lapply(mpg[, char_var], as.factor)
+str(mpg)
+```
+
+視覺化中的散點圖，應用於兩個數值内容。
+
+```{r}
+library(ggplot2)
+ggplot(mpg, aes(x = hwy, y = cty)) +
+  geom_point(aes(color = as.factor(cyl), size = displ)) +
+  geom_smooth(method = "lm")
+```
+
+corrplot包主要針對相關係數輸出的結果進行視覺化，可以實現選擇顏色，文字標籤，顏色標籤，佈局等的操作。
+
+```{r}
+library(corrplot)
+cor_matrix <- cor(mpg[complete.cases(mpg), sapply(mpg, is.numeric)], method = "pearson")
+corrplot(cor_matrix, type = "upper")
+```
+
+密度圖，應用於兩個内容，一個類別内容和一個數位内容。
+
+```{r}
+library(ggplot2)
+ggplot(mpg, aes(cty)) +
+  geom_density(aes(fill=factor(cyl))) +
+    labs(title="Density plot",
+         subtitle="City Mileage Grouped by Number of cylinders",
+         caption="Source: mpg",
+         x="City Mileage",
+         fill="# Cylinders")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+

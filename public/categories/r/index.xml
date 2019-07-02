@@ -18,7 +18,7 @@
       
       <guid>/2019/06/30/plotting/</guid>
       <description>這部分內容主要來自雪城大學的教授給我們學院資訊管理與資訊系統專業的同學們開設的國際周課程（Machine Learning,Data Mining,PredictiveModeling,Statistics），我去旁聽了一下，第一講說的正好是有關R語言的一些東西，具體的知識我還在理解中。
-列出來的錶還是很好看的。
+列出來的錶還是很好看的（雖然圖很長，但後面還是有別的內容的）。
 library(ggplot2)data(mpg, package = &amp;quot;ggplot2&amp;quot;)dim(mpg)## [1] 234 11str(mpg)## Classes &amp;#39;tbl_df&amp;#39;, &amp;#39;tbl&amp;#39; and &amp;#39;data.frame&amp;#39;: 234 obs. of 11 variables:## $ manufacturer: chr &amp;quot;audi&amp;quot; &amp;quot;audi&amp;quot; &amp;quot;audi&amp;quot; &amp;quot;audi&amp;quot; ...## $ model : chr &amp;quot;a4&amp;quot; &amp;quot;a4&amp;quot; &amp;quot;a4&amp;quot; &amp;quot;a4&amp;quot; ...## $ displ : num 1.8 1.8 2 2 2.8 2.8 3.1 1.8 1.8 2 ...## $ year : int 1999 1999 2008 2008 1999 1999 2008 1999 1999 2008 .</description>
     </item>
     

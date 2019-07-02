@@ -11,7 +11,7 @@ tags: []
 這部分內容主要來自雪城大學的教授給我們學院資訊管理與資訊系統專業的同學們開設的國際周課程（Machine Learning,Data Mining,Predictive
 Modeling,Statistics），我去旁聽了一下，第一講說的正好是有關R語言的一些東西，具體的知識我還在理解中。
 
-列出來的錶還是很好看的。
+列出來的錶還是很好看的（雖然圖很長，但後面還是有別的內容的）。
 
 ```{r}
 library(ggplot2)
